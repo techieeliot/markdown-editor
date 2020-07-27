@@ -3,3 +3,5 @@ dist
 .cache
 .parcel-cache
 .DS_Store
+# Local Netlify folder
+.netlify
