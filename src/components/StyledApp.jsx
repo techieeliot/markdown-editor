@@ -1,27 +1,34 @@
 import styled from "styled-components"
 
 const StyledApp = styled.main `
-
     #editor-section {
-        width: 80vw;
+        margin: 0 auto;
+        width: 90vw;
         height: 80vh;
-        background-color: gainsboro;
+        background-color: black;
     } 
     
     #one, #two {
         background-color: white;
         border: 0.5em solid #E2E4E9;
-        width: 50vw;
-        height: 95vh;
-    }
-
-    #one h2, textarea {
-        border: 0.5em dashed black;
+        width: 40vw;
         height: 75vh;
     }
-    #two h2, aside {
+
+    #one h2, #two h2 {
+        height: 5vh;
+    }
+
+    #editor, #preview {
+        height: 60vh;
+        width: 35vw;
+    }
+
+    #one textarea {
+        border: 0.5em dashed black;
+    }
+    #two aside {
         border: 0.5em dotted lightgreen;
-        height: 75vh
     }
 
     .flexbox {
