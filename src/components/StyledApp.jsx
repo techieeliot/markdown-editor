@@ -24,6 +24,10 @@ const StyledApp = styled.main `
         width: 35vw;
     }
 
+    #preview img {
+        width: 20vw;
+    }
+
     #one textarea {
         border: 0.5em dashed black;
     }
