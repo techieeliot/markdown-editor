@@ -8,10 +8,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "marked": "^1.1.1",
+    "marked": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "babel-preset-nano-react-app": "^0.1.0",
