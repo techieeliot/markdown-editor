@@ -10,13 +10,13 @@
   "dependencies": {
     "antd": "^4.7.0",
     "marked": "^1.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "babel-preset-nano-react-app": "^0.1.0",
-    "parcel": "^2.0.0-nightly.420"
+    "parcel": "^2.0.0-nightly.425"
   },
   "babel": {
     "presets": [
