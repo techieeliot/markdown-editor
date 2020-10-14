@@ -4,13 +4,29 @@ import styled from 'styled-components'
 
 const { TabPane } = Tabs;
 const marked = require('marked')
-
+// Set options
+// `highlight` example uses `highlight.js`
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    // highlight: function(code, language) {
+    //   const hljs = require('highlight.js');
+    //   const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+    //   return hljs.highlight(validLanguage, code).value;
+    // },
+    pedantic: false,
+    gfm: true,
+    breaks: true,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false
+  });
 
 function callback(key) {
   console.log(key);
 }
 
-export default ({ text, setText}) => (
+export default ({ markdownString, setMarkdownString}) => (
     <TabWindow>
         <Tabs defaultActiveKey="1" onChange={callback}>
             <TabPane tab="Editor" key="1">
@@ -22,8 +38,8 @@ export default ({ text, setText}) => (
                         id="editor"
                         name="editor"
                         placeholder="Enter Markdown"
-                        onChange={event => setText(event.target.value)}
-                        value = {text}
+                        onChange={event => setMarkdownString(event.target.value)}
+                        value = {markdownString}
                     ></textarea>
                 </Editor>
             </TabPane>
@@ -32,7 +48,7 @@ export default ({ text, setText}) => (
                     <header>
                         <h2 className="heading">Preview</h2>
                     </header>
-                    <aside id="preview" name="preview" dangerouslySetInnerHTML= {{__html: marked(text)}}>
+                    <aside id="preview" name="preview" dangerouslySetInnerHTML= {{__html: marked(markdownString)}}>
                     </aside>
                 </Preview>
             </TabPane>
@@ -58,8 +74,8 @@ width: 100%;
 `
     
 const Editor = styled.article`
-background-color: white;
 border: 0.5em solid #E2E4E9;
+border-radius: 20px;
 width: 90%;
 height: 75%;
 
@@ -68,7 +84,7 @@ height: 75%;
 }
 
 #editor {
-    height: 60%;
+    height: 80%;
     width: 95%;
 }
 
@@ -83,18 +99,22 @@ textarea {
 #editor, .heading {
     margin: 1rem;
 }
+@media only screen and (max-width: 600px) {
+    border: 0.5em solid #fff;
+    width: 100%;
+}
 `
 
 const Preview = styled.article`
-background-color: white;
 border: 0.5em solid #E2E4E9;
+border-radius: 20px;
 width: 90%;
 height: 75%;
 #preview, .heading {
     margin: 1rem;
 }
 #preview {
-    height: 75%;
+    height: 80%;
     width: 95%;
 }
 #preview img {
@@ -107,5 +127,11 @@ aside {
     border: 6px solid #e1e4e8;
     overflow: scroll;
     padding: 1rem;
+    100%
+}
+
+@media only screen and (max-width: 600px) {
+    border: 0.5em solid #fff;
+    width: 100%;
 }
 `

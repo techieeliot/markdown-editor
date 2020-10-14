@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import StyledApp from "./components/StyledApp";
 import TabWindow from "./components/TabWindow"
 import styled from 'styled-components'
 // 1. get the textarea on change (keyup)
@@ -31,8 +30,8 @@ const App = () => {
 			<h1 id="title">Markdown Editor</h1>
 		</header>
 		<TabWindow 
-			text={text}
-			setText={setText}
+			markdownString={text}
+			setMarkdownString={setText}
 			/>
 	</Main>
 );
