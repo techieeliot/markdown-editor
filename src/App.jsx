@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import StyledApp from "./components/StyledApp";
-
-const marked = require('marked')
-
+import TabWindow from "./components/TabWindow"
+import styled from 'styled-components'
 // 1. get the textarea on change (keyup)
 // 2. process the textarea content with marked
 // 3. send the marked text to the previewer
@@ -27,33 +25,35 @@ const App = () => {
 	const [ text, setText ] = useState(initialText);
 	
 	return (
-  <StyledApp >
-    <header>
-      <h1>Markdown Editor</h1>
-    </header>
-    <section id="editor-section" className="flexbox">
-      <article id="one">
-        <header>
-          <h2 className="heading">Editor</h2>
-        </header>
-        <textarea
-			id="editor"
-			name="editor"
-			placeholder="Enter Markdown"
-			onChange={event => setText(event.target.value)}
-			value = {text}
-		></textarea>
-      </article>
-      <article id="two">
-        <header>
-          <h2 className="heading">Preview</h2>
-        </header>
-        <aside id="preview" name="preview" dangerouslySetInnerHTML= {{__html: marked(text)}}>
-		</aside>
-      </article>
-    </section>
-  </StyledApp>
+	<Main>
+		<header>
+			<h1 id="title">Markdown Editor</h1>
+		</header>
+		<TabWindow 
+			markdownString={text}
+			setMarkdownString={setText}
+			/>
+	</Main>
 );
 }
 
 export default App
+
+const Main = styled.section`
+	* {
+		box-sizing: border-box;
+	}
+
+	font-family:  Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+	font-size: 16px;
+	margin: 1rem auto;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	#title {
+		text-align: center;
+	}
+`
