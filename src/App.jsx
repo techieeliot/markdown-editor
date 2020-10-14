@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StyledApp from "./components/StyledApp";
 import TabWindow from "./components/TabWindow"
-
+import styled from 'styled-components'
 // 1. get the textarea on change (keyup)
 // 2. process the textarea content with marked
 // 3. send the marked text to the previewer
@@ -26,16 +26,35 @@ const App = () => {
 	const [ text, setText ] = useState(initialText);
 	
 	return (
-	<>
+	<Main>
 		<header>
-			<h1>Markdown Editor</h1>
+			<h1 id="title">Markdown Editor</h1>
 		</header>
 		<TabWindow 
 			text={text}
 			setText={setText}
-		/>
-	</>
+			/>
+	</Main>
 );
 }
 
 export default App
+
+const Main = styled.section`
+	* {
+		box-sizing: border-box;
+	}
+
+	font-family:  Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+	font-size: 16px;
+	margin: 1rem auto;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	#title {
+		text-align: center;
+	}
+`

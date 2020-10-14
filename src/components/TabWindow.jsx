@@ -13,10 +13,10 @@ function callback(key) {
 export default ({ text, setText}) => (
     <TabWindow>
         <Tabs defaultActiveKey="1" onChange={callback}>
-            <TabPane tab="Tab 1" key="1">
-                <article id="one">
+            <TabPane tab="Editor" key="1">
+                <Editor id="one">
                     <header>
-                    <h2 className="heading">Editor</h2>
+                        <h2 className="heading">Editor</h2>
                     </header>
                     <textarea
                         id="editor"
@@ -25,69 +25,87 @@ export default ({ text, setText}) => (
                         onChange={event => setText(event.target.value)}
                         value = {text}
                     ></textarea>
-                </article>
+                </Editor>
             </TabPane>
-            <TabPane tab="Tab 2" key="2">
-                <article id="two">
+            <TabPane tab="Preview" key="2">
+                <Preview id="two">
                     <header>
-                    <h2 className="heading">Preview</h2>
+                        <h2 className="heading">Preview</h2>
                     </header>
                     <aside id="preview" name="preview" dangerouslySetInnerHTML= {{__html: marked(text)}}>
                     </aside>
-                </article>
+                </Preview>
             </TabPane>
         </Tabs>
     </TabWindow>
 );
 
- const TabWindow = styled.section`
-   
- `
- // #one, #two {
-    //     background-color: white;
-    //     border: 0.5em solid #E2E4E9;
-    //     width: 40vw;
-    //     height: 75vh;
-    // }
+const TabWindow = styled.section`
+width: 100%;
 
+.ant-tabs-nav-list {
+    display: flex; 
+}
+
+.ant-tabs-tab-btn{
+    padding: 1rem;  
+    font-weight: 800;      
+}
+
+.ant-tabs-tabpane {
+    height: 50rem;
+}
+`
+    
 const Editor = styled.article`
+background-color: white;
+border: 0.5em solid #E2E4E9;
+width: 90%;
+height: 75%;
 
+.heading {
+    height: 5%;
+}
+
+#editor {
+    height: 60%;
+    width: 95%;
+}
+
+textarea {
+    border: 6px solid #e1e4e8;
+    height: 100%;
+    width: auto;
+    overflow: scroll;
+    padding: 1rem;
+}
+
+#editor, .heading {
+    margin: 1rem;
+}
 `
 
-// #editor-section {
-//     margin: 0 auto;
-//     width: 90vw;
-//     height: 80vh;
-//     background-color: black;
-// }
-
-
-
-// #one h2, #two h2 {
-//     height: 5vh;
-// }
-
-// #editor, #preview {
-//     height: 60vh;
-//     width: 35vw;
-// }
-
-// #preview img {
-//     width: 20vw;
-// }
-
-// #one textarea {
-//     border: 0.5em dashed black;
-// }
-// #two aside {
-//     border: 0.5em dotted lightgreen;
-// }
-
-// .flexbox {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-items: center;
-//     align-content: stretch;
-// }
+const Preview = styled.article`
+background-color: white;
+border: 0.5em solid #E2E4E9;
+width: 90%;
+height: 75%;
+#preview, .heading {
+    margin: 1rem;
+}
+#preview {
+    height: 75%;
+    width: 95%;
+}
+#preview img {
+    width: 20%;
+}
+.heading {
+    height: 5%;
+}
+aside {
+    border: 6px solid #e1e4e8;
+    overflow: scroll;
+    padding: 1rem;
+}
+`
