@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import StyledApp from "./components/StyledApp";
-
-const marked = require('marked')
+import TabWindow from "./components/TabWindow"
 
 // 1. get the textarea on change (keyup)
 // 2. process the textarea content with marked
@@ -27,32 +26,15 @@ const App = () => {
 	const [ text, setText ] = useState(initialText);
 	
 	return (
-  <StyledApp >
-    <header>
-      <h1>Markdown Editor</h1>
-    </header>
-    <section id="editor-section" className="flexbox">
-      <article id="one">
-        <header>
-          <h2 className="heading">Editor</h2>
-        </header>
-        <textarea
-			id="editor"
-			name="editor"
-			placeholder="Enter Markdown"
-			onChange={event => setText(event.target.value)}
-			value = {text}
-		></textarea>
-      </article>
-      <article id="two">
-        <header>
-          <h2 className="heading">Preview</h2>
-        </header>
-        <aside id="preview" name="preview" dangerouslySetInnerHTML= {{__html: marked(text)}}>
-		</aside>
-      </article>
-    </section>
-  </StyledApp>
+	<>
+		<header>
+			<h1>Markdown Editor</h1>
+		</header>
+		<TabWindow 
+			text={text}
+			setText={setText}
+		/>
+	</>
 );
 }
 
