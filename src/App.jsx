@@ -29,7 +29,7 @@ const App = () => {
 	return (
 	<Main>
 		<Header>
-			<h1 id="title">Markdown Editor</h1>
+			<h1 id="title"><span style={{fontFamily: "monospace", fontWeight: "500"}}># Markdown</span> Previewer</h1>
 		</Header>
 		<TabWindow 
 			markdownString={text}
