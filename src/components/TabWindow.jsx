@@ -59,13 +59,26 @@ export default ({ markdownString, setMarkdownString}) => (
 const TabWindow = styled.section`
 width: 100%;
 
-.ant-tabs-nav-list {
-    display: flex; 
-}
-
 .ant-tabs-tab-btn{
     padding: 1rem;  
     font-weight: 800;      
+}
+
+.ant-tabs-nav-list {
+    display: flex; 
+    background-color: #F1F8FF;
+    border-radius: 6px 6px 0 0;
+    border-color: #e1e4e8;
+    border-style: double;
+    width: 90%;
+}
+
+.ant-tabs-tab-active{
+    background-color: #fff;
+    border-color: #e1e4e8;
+    border-radius: 6px 6px 0 0;
+    border-style: inherit;
+    border-bottom: 0;
 }
 
 .ant-tabs-tabpane {
@@ -116,6 +129,12 @@ height: 75%;
 #preview {
     height: 80%;
     width: 95%;
+}
+#preview h1 {
+    font-size: 1.5rem;
+}
+#preview h2 {
+    font-size: 1.25rem;
 }
 #preview img {
     width: 20%;

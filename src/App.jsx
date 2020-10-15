@@ -28,9 +28,9 @@ const App = () => {
 	
 	return (
 	<Main>
-		<header>
+		<Header>
 			<h1 id="title">Markdown Editor</h1>
-		</header>
+		</Header>
 		<TabWindow 
 			markdownString={text}
 			setMarkdownString={setText}
@@ -57,5 +57,11 @@ const Main = styled.section`
 	
 	#title {
 		text-align: center;
+	}
+`
+
+const Header = styled.header`
+	#h1{
+		font-size: 2rem;
 	}
 `
