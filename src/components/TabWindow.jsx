@@ -71,6 +71,7 @@ width: 100%;
     border-color: #e1e4e8;
     border-style: double;
     width: 90%;
+    border-width: 1px;
 }
 
 .ant-tabs-tab-active{
@@ -81,14 +82,18 @@ width: 100%;
     border-bottom: 0;
 }
 
+.ant-tabs-nav-operations{
+    display: none;
+}
+
 .ant-tabs-tabpane {
     height: 50rem;
 }
 `
     
 const Editor = styled.article`
-border: 0.5em solid #E2E4E9;
-border-radius: 20px;
+border: 1px solid #E2E4E9;
+border-radius: 0 0 20px 20px;
 width: 90%;
 height: 75%;
 
@@ -99,18 +104,14 @@ height: 75%;
 #editor {
     height: 80%;
     width: 95%;
-}
-
-textarea {
-    border: 6px solid #e1e4e8;
-    height: 100%;
-    width: auto;
+    border: 1px solid #e1e4e8;
     overflow: scroll;
     padding: 1rem;
 }
 
 #editor, .heading {
-    margin: 1rem;
+    margin: 1rem 0 1rem 1rem;
+    padding: 0 1rem 0 0;
 }
 @media only screen and (max-width: 600px) {
     border: 0.5em solid #fff;
@@ -119,16 +120,20 @@ textarea {
 `
 
 const Preview = styled.article`
-border: 0.5em solid #E2E4E9;
-border-radius: 20px;
+border: 1px solid #E2E4E9;
+border-radius: 0 0 20px 20px;
 width: 90%;
 height: 75%;
 #preview, .heading {
-    margin: 1rem;
+    margin: 1rem 0 1rem 1rem;
+    padding: 0 1rem 0 0;
 }
 #preview {
     height: 80%;
     width: 95%;
+    border: 1px solid #e1e4e8;
+    overflow: scroll;
+    padding: 1rem;
 }
 #preview h1 {
     font-size: 1.5rem;
@@ -141,12 +146,6 @@ height: 75%;
 }
 .heading {
     height: 5%;
-}
-aside {
-    border: 6px solid #e1e4e8;
-    overflow: scroll;
-    padding: 1rem;
-    100%
 }
 
 @media only screen and (max-width: 600px) {

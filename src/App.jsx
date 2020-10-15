@@ -6,7 +6,7 @@ import styled from 'styled-components'
 // 3. send the marked text to the previewer
 
 const App = () => {
-	const initialText = `\n
+	const initialText = `
 		\n# Eliot Sanford
 		\n## Software Engineering Contractor
 		\n[Portfolio Page](https://techieEliot.com)
