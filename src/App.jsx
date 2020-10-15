@@ -6,21 +6,23 @@ import styled from 'styled-components'
 // 3. send the marked text to the previewer
 
 const App = () => {
-	const initialText = `\n# Eliot Sanford
+	const initialText = `\n
+		\n# Eliot Sanford
 		\n## Software Engineering Contractor
 		\n[Portfolio Page](https://techieEliot.com)
 		\n\`let name = "Eliot"\`
 		\n\`\`\`
 		\n	const fullName = "Eliot Sanford"
-		\n	const greeting = () => {}
+		\n	const greeting = () => console.log(\`Hello \${name}\`)
 		\n\`\`\`
 		\n- a list item
 		\n- another list item
 		\n- yet another list item
 		\n
-		\n> a blockquote
+		\n**Warning!**
+		\n> This react app is protected by a highly trained fainting goat. 
 		\n![goat](https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg)
-		\nThis is **bolded text**.
+		\n**Not responsible for injury or possible death**
 	`
 	const [ text, setText ] = useState(initialText);
 	
